@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CROO Agent Hackathon — $10,200 USDC</title>
+  <link rel="icon" type="image/png" href="favicon-48x48.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:    #81F54F;
+      --green-dk: #64C93E;
+      --gdim:     rgba(129,245,79,.10);
+      --gbdr:     rgba(129,245,79,.25);
+      --bg:       #080A08;
+      --bg2:      #0D110D;
+      --card:     #101410;
+      --card2:    #161E16;
+      --bdr:      rgba(255,255,255,.07);
+      --bdr2:     rgba(255,255,255,.13);
+      --w:        #fff;
+      --m:        rgba(255,255,255,.52);
+      --m2:       rgba(255,255,255,.30);
+      --m3:       rgba(255,255,255,.14);
+      --gold:     #F5C842;
+    }
+    body { background:var(--bg); color:var(--w); font-family:'Outfit',system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+
+    /* NAV */
+    .main-nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 28px; background:rgba(8,10,8,.85); backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--bdr);
+    }
+    .nav-logo img { height:28px; display:block; }
+    .nav-center {
+      position:absolute; left:50%; transform:translateX(-50%);
+      font-size:12px; font-weight:700; letter-spacing:.08em; color:var(--m);
+      background:rgba(255,255,255,.06); border:1px solid var(--bdr2);
+      border-radius:100px; padding:5px 14px; text-transform:uppercase; white-space:nowrap;
+    }
+    .nav-right { display:flex; gap:10px; }
+    .btn-back {
+      background:rgba(255,255,255,.07); color:var(--w); border:1px solid var(--bdr2);
+      border-radius:100px; padding:8px 18px; font-family:inherit; font-size:13px;
+      font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;
+      transition:background .15s;
+    }
+    .btn-back:hover { background:rgba(255,255,255,.12); }
+
+    /* HERO */
+    .hero {
+      position:relative; min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; overflow:hidden; padding:120px 24px 80px;
+    }
+    .hero-bg { position:absolute; inset:0; background:url('hero-poster.webp') center/cover no-repeat; }
+    .hero-grad {
+      position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(8,10,8,.52) 0%,rgba(8,10,8,.68) 50%,rgba(8,10,8,1) 100%);
+    }
+    .hero-inner { position:relative; z-index:2; max-width:800px; }
+    .hero-logo  { height:44px; margin:0 auto 28px; display:block; }
+    .eyebrow {
+      display:inline-block; font-size:11px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--green); border:1px solid var(--gbdr);
+      background:var(--gdim); border-radius:100px; padding:5px 16px; margin-bottom:24px;
+    }
+    .hero h1 {
+      font-size:clamp(2.8rem,7.5vw,5.2rem); font-weight:900; line-height:1.05;
+      letter-spacing:-.03em; margin-bottom:22px;
+    }
+    .hero h1 em { color:var(--green); font-style:normal; display:block; }
+    .hero-sub {
+      font-size:clamp(1rem,2.2vw,1.18rem); color:var(--m);
+      max-width:600px; margin:0 auto 32px; line-height:1.72;
+    }
+
+    /* PRIZE PILL */
+    .prize-pill {
+      display:inline-flex; align-items:center; gap:10px;
+      background:linear-gradient(90deg,rgba(129,245,79,.14),rgba(129,245,79,.05));
+      border:1px solid var(--gbdr); border-radius:100px; padding:10px 28px;
+      margin-bottom:32px; font-size:1rem; font-weight:700; color:var(--green);
+    }
+    .prize-pill strong { font-size:1.5rem; font-weight:900; }
+
+    .hero-ctas { display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:16px; }
+    .btn-prim {
+      background:var(--green); color:#000; border:none; border-radius:100px;
+      padding:15px 36px; font-family:inherit; font-size:1rem; font-weight:800;
+      cursor:pointer; transition:background .15s, transform .1s; text-decoration:none;
+      display:inline-block;
+    }
+    .btn-prim:hover { background:var(--green-dk); transform:translateY(-1px); }
+    .btn-ghost {
+      background:rgba(255,255,255,.07); color:var(--w); border:1px solid var(--bdr2);
+      border-radius:100px; padding:15px 28px; font-family:inherit; font-size:1rem;
+      font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;
+      transition:background .15s;
+    }
+    .btn-ghost:hover { background:rgba(255,255,255,.12); }
+    .hero-note { font-size:12px; color:var(--m2); letter-spacing:.02em; }
+
+    /* DETAILS STRIP */
+    .strip { background:var(--bg2); border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr); padding:64px 24px; }
+    .container { max-width:1060px; margin:0 auto; }
+    .sec-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-bottom:10px; }
+    .sec-title { font-size:clamp(1.4rem,2.8vw,2rem); font-weight:800; letter-spacing:-.02em; margin-bottom:32px; }
+
+    /* TIMELINE — 7 milestones, scrollable on mobile */
+    .timeline-wrap { overflow-x:auto; padding-bottom:8px; }
+    .timeline {
+      display:grid; grid-template-columns:repeat(7,1fr); gap:0; position:relative;
+      min-width:680px;
+    }
+    .timeline::before {
+      content:''; position:absolute; top:22px; left:22px; right:22px; height:1px;
+      background:var(--bdr2); z-index:0;
+    }
+    .tl-step { text-align:center; position:relative; z-index:1; padding:0 8px; }
+    .tl-dot {
+      width:44px; height:44px; border-radius:50%;
+      background:var(--card); border:2px solid var(--gbdr);
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; margin:0 auto 12px;
+    }
+    .tl-date  { font-size:.74rem; font-weight:700; color:var(--green); letter-spacing:.05em; text-transform:uppercase; margin-bottom:4px; }
+    .tl-label { font-size:.84rem; font-weight:700; margin-bottom:4px; line-height:1.25; }
+    .tl-desc  { font-size:.76rem; color:var(--m); line-height:1.5; }
+
+    /* PRIZES */
+    .prize-list {
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:18px; overflow:hidden;
+    }
+    .prize-list-item {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 24px; border-bottom:1px solid var(--bdr);
+      transition:background .15s;
+    }
+    .prize-list-item:last-child { border-bottom:none; }
+    .prize-list-item:hover { background:rgba(255,255,255,.025); }
+    .prize-list-left { display:flex; align-items:center; gap:14px; }
+    .prize-list-medal { font-size:20px; width:28px; text-align:center; flex-shrink:0; }
+    .prize-list-rank  { font-size:.9rem; font-weight:700; }
+    .prize-list-sub   { font-size:.78rem; color:var(--m2); margin-top:1px; }
+    .prize-list-amount { font-size:1.1rem; font-weight:900; color:var(--green); letter-spacing:-.01em; }
+    .prize-list-item.prize-top { background:linear-gradient(90deg,rgba(129,245,79,.05),transparent); }
+    .prize-list-item.prize-top .prize-list-amount { font-size:1.25rem; }
+
+    /* PERKS */
+    .perks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+    @media(max-width:760px) { .perks-grid { grid-template-columns:1fr; } }
+    .perk-card {
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:14px; padding:18px 20px;
+    }
+    .perk-icon  { font-size:20px; margin-bottom:8px; }
+    .perk-title { font-size:.88rem; font-weight:700; margin-bottom:3px; }
+    .perk-desc  { font-size:.8rem; color:var(--m); line-height:1.55; }
+
+    /* TRACKS */
+    .tracks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    @media(max-width:760px) { .tracks-grid { grid-template-columns:1fr 1fr; } }
+    @media(max-width:480px) { .tracks-grid { grid-template-columns:1fr; } }
+
+    .track-card {
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:14px; padding:18px 20px; transition:border-color .2s;
+    }
+    .track-card:hover { border-color:var(--gbdr); }
+    .track-icon  { font-size:22px; margin-bottom:10px; }
+    .track-title { font-size:.95rem; font-weight:700; margin-bottom:4px; }
+    .track-desc  { font-size:.82rem; color:var(--m); line-height:1.6; }
+
+    .track-note {
+      font-size:.82rem; color:var(--m2); margin-top:18px; text-align:center;
+    }
+
+    /* JUDGING CRITERIA */
+    .judge-list {
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .judge-row {
+      display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center;
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:12px; padding:14px 20px;
+    }
+    .judge-icon { font-size:22px; }
+    .judge-title { font-size:.92rem; font-weight:700; margin-bottom:2px; }
+    .judge-desc  { font-size:.82rem; color:var(--m); line-height:1.5; }
+    .judge-pct {
+      font-size:1.1rem; font-weight:900; color:var(--green);
+      background:var(--gdim); border:1px solid var(--gbdr);
+      border-radius:100px; padding:4px 14px; min-width:62px; text-align:center;
+    }
+
+    /* REQUIREMENTS */
+    .req-list { list-style:none; display:flex; flex-direction:column; gap:12px; }
+    .req-item {
+      display:flex; gap:14px; align-items:flex-start;
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:14px; padding:18px 20px;
+    }
+    .req-icon  { font-size:20px; flex-shrink:0; margin-top:1px; }
+    .req-title { font-size:.92rem; font-weight:700; margin-bottom:3px; }
+    .req-desc  { font-size:.85rem; color:var(--m); line-height:1.6; }
+
+    /* SIMPLE BULLET CARD */
+    .bullet-card {
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:16px; padding:24px 28px;
+    }
+    .bullet-card ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .bullet-card li { display:flex; gap:10px; font-size:.88rem; color:var(--m); line-height:1.6; }
+    .bullet-card li::before { content:'·'; color:var(--green); font-size:20px; line-height:1; flex-shrink:0; }
+    .bullet-card li strong { color:var(--w); font-weight:700; }
+    .bullet-card .sub-h {
+      font-size:.78rem; font-weight:700; color:var(--green);
+      text-transform:uppercase; letter-spacing:.08em; margin:14px 0 8px;
+    }
+    .bullet-card .sub-h:first-child { margin-top:0; }
+
+    /* RULES CARD */
+    .rules-card {
+      background:rgba(230,80,80,.04); border:1px solid rgba(230,80,80,.18);
+      border-radius:16px; padding:24px 28px;
+    }
+    .rules-title { font-size:.95rem; font-weight:800; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .rules-card .sub-h {
+      font-size:.78rem; font-weight:700; color:#e96e6e;
+      text-transform:uppercase; letter-spacing:.08em; margin:14px 0 8px;
+    }
+    .rules-card ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .rules-card li { display:flex; gap:10px; font-size:.85rem; color:var(--m); line-height:1.6; }
+    .rules-card li::before { content:'·'; color:#e96e6e; font-size:20px; line-height:1; flex-shrink:0; }
+    .rules-card p { font-size:.82rem; color:var(--m2); line-height:1.6; margin-top:14px; }
+
+    /* FOOTER */
+    footer {
+      border-top:1px solid var(--bdr); padding:32px 24px;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    }
+    .ft-logo img { height:22px; opacity:.7; }
+    .ft-links { display:flex; gap:20px; list-style:none; }
+    .ft-links a { font-size:13px; color:var(--m); text-decoration:none; transition:color .15s; }
+    .ft-links a:hover { color:var(--w); }
+    .ft-copy { font-size:12px; color:var(--m3); width:100%; padding-top:8px; }
+  </style>
+</head>
+<body>
+
+<nav class="main-nav">
+  <a href="https://croo.network/" target="_blank" class="nav-logo">
+    <img src="logo-croo.png" alt="CROO" />
+  </a>
+  <div class="nav-center">CROO Agent Hackathon</div>
+  <div class="nav-right">
+    <a href="index.html" class="btn-back">← All Campaigns</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-inner">
+    <img src="logo-croo.png" alt="CROO" class="hero-logo" />
+    <div class="eyebrow">Hosted on DoraHacks · Jun 9 – Jul 24</div>
+    <h1>CROO Agent<em>Hackathon.</em></h1>
+    <p class="hero-sub">Build a paid, callable AI agent on the CROO Agent Protocol. Six tracks, 30-day build sprint, real prizes.</p>
+    <div class="prize-pill">🏆 <strong>$10,200</strong> USDC Prize Pool</div>
+    <div class="hero-ctas">
+      <a href="https://dorahacks.io/hackathon/croo-hackathon/detail" target="_blank" class="btn-prim">Register on DoraHacks →</a>
+      <a href="https://cap.croo.network/" target="_blank" class="btn-ghost">Read Docs & List Your Agent</a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS STRIP -->
+<div class="strip">
+  <div class="container">
+
+    <!-- TIMELINE -->
+    <div class="sec-label">Timeline</div>
+    <h2 class="sec-title">Key Dates</h2>
+    <div class="timeline-wrap">
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-dot">🚀</div>
+          <div class="tl-date">Jun 9</div>
+          <div class="tl-label">Kickoff</div>
+          <div class="tl-desc">Registration opens</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">⚒️</div>
+          <div class="tl-date">Jun 9 – Jul 9</div>
+          <div class="tl-label">Build Sprint</div>
+          <div class="tl-desc">30 days</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">📦</div>
+          <div class="tl-date">Jul 9 · 23:59 UTC+8</div>
+          <div class="tl-label">Submission Deadline</div>
+          <div class="tl-desc">All BUIDLs must be filed</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">🔍</div>
+          <div class="tl-date">Jul 10 – 15</div>
+          <div class="tl-label">Internal Review</div>
+          <div class="tl-desc">Shortlisting</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">🎬</div>
+          <div class="tl-date">Jul 16</div>
+          <div class="tl-label">Demo Day</div>
+          <div class="tl-desc">Live presentations</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">⚖️</div>
+          <div class="tl-date">Jul 17 – 23</div>
+          <div class="tl-label">Final Judging</div>
+          <div class="tl-desc">Judges score</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">🏆</div>
+          <div class="tl-date">Jul 24</div>
+          <div class="tl-label">Winners Announced</div>
+          <div class="tl-desc">Results published</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:64px;"></div>
+
+    <!-- PRIZES -->
+    <div class="sec-label">Prizes</div>
+    <h2 class="sec-title">$10,200 USDC Cash Pool</h2>
+    <div class="prize-list">
+      <div class="prize-list-item prize-top">
+        <div class="prize-list-left">
+          <div class="prize-list-medal">🥇</div>
+          <div>
+            <div class="prize-list-rank">1st — Grand Champion</div>
+          </div>
+        </div>
+        <div class="prize-list-amount">$3,500 USDC</div>
+      </div>
+      <div class="prize-list-item prize-top">
+        <div class="prize-list-left">
+          <div class="prize-list-medal">🥈</div>
+          <div><div class="prize-list-rank">2nd Place</div></div>
+        </div>
+        <div class="prize-list-amount">$2,500 USDC</div>
+      </div>
+      <div class="prize-list-item prize-top">
+        <div class="prize-list-left">
+          <div class="prize-list-medal">🥉</div>
+          <div><div class="prize-list-rank">3rd Place</div></div>
+        </div>
+        <div class="prize-list-amount">$1,500 USDC</div>
+      </div>
+      <div class="prize-list-item">
+        <div class="prize-list-left">
+          <div class="prize-list-medal">🏅</div>
+          <div>
+            <div class="prize-list-rank">4th – 10th — Honorable</div>
+            <div class="prize-list-sub">7 winners · $300 × 7 = $2,100</div>
+          </div>
+        </div>
+        <div class="prize-list-amount" style="font-size:1rem;">$300 USDC each</div>
+      </div>
+      <div class="prize-list-item">
+        <div class="prize-list-left">
+          <div class="prize-list-medal">❤️</div>
+          <div>
+            <div class="prize-list-rank">Most Popular Agent</div>
+            <div class="prize-list-sub">Data-driven · anti-sybil reviewed</div>
+          </div>
+        </div>
+        <div class="prize-list-amount" style="font-size:1rem;">$300 USDC</div>
+      </div>
+      <div class="prize-list-item">
+        <div class="prize-list-left">
+          <div class="prize-list-medal">💡</div>
+          <div>
+            <div class="prize-list-rank">Most Innovative Agent</div>
+            <div class="prize-list-sub">Judges' pick</div>
+          </div>
+        </div>
+        <div class="prize-list-amount" style="font-size:1rem;">$300 USDC</div>
+      </div>
+    </div>
+
+    <!-- PERKS — beyond cash -->
+    <div class="perks-grid">
+      <div class="perk-card">
+        <div class="perk-icon">🏪</div>
+        <div class="perk-title">Agent Store Featured Listing</div>
+        <div class="perk-desc">Top finishers get featured placement on CROO Agent Store.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">🎟️</div>
+        <div class="perk-title">$CROO Airdrop Whitelist</div>
+        <div class="perk-desc">Top 10 teams added to the $CROO airdrop whitelist.</div>
+      </div>
+      <div class="perk-card">
+        <div class="perk-icon">📌</div>
+        <div class="perk-title">Permanent Listing</div>
+        <div class="perk-desc">Every valid submission keeps a permanent listing on CROO Agent Store.</div>
+      </div>
+    </div>
+
+    <div style="height:64px;"></div>
+
+    <!-- TRACKS -->
+    <div class="sec-label">Tracks</div>
+    <h2 class="sec-title">Six Categories</h2>
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-icon">🔬</div>
+        <div class="track-title">Research & Intelligence Agents</div>
+        <div class="track-desc">Paid research with verifiable sources.</div>
+      </div>
+      <div class="track-card">
+        <div class="track-icon">✅</div>
+        <div class="track-title">Data & Verification Agents</div>
+        <div class="track-desc">Provenance, credentials, output checks.</div>
+      </div>
+      <div class="track-card">
+        <div class="track-icon">🎨</div>
+        <div class="track-title">Creator & Content Ops Agents</div>
+        <div class="track-desc">Priced, composable creator services.</div>
+      </div>
+      <div class="track-card">
+        <div class="track-icon">⛓️</div>
+        <div class="track-title">DeFi / On-chain Ops Agents</div>
+        <div class="track-desc">Monitoring, alerts, execution.</div>
+      </div>
+      <div class="track-card">
+        <div class="track-icon">🛠️</div>
+        <div class="track-title">Developer Tooling Agents</div>
+        <div class="track-desc">Tools for other CAP builders.</div>
+      </div>
+      <div class="track-card">
+        <div class="track-icon">∞</div>
+        <div class="track-title">Open — Any A2A Agents</div>
+        <div class="track-desc">Anything proving A2A composability.</div>
+      </div>
+    </div>
+    <p class="track-note">Multiple-track submissions allowed (max 2 per BUIDL).</p>
+
+    <div style="height:64px;"></div>
+
+    <!-- JUDGING CRITERIA -->
+    <div class="sec-label">Judging</div>
+    <h2 class="sec-title">Criteria & Weighting</h2>
+    <div class="judge-list">
+      <div class="judge-row">
+        <div class="judge-icon">⚙️</div>
+        <div>
+          <div class="judge-title">Technical Execution</div>
+          <div class="judge-desc">Robust CAP integration, reliable A2A interactions, proper payment state handling. Bonus: 10+ real CAP orders during the hackathon.</div>
+        </div>
+        <div class="judge-pct">30%</div>
+      </div>
+      <div class="judge-row">
+        <div class="judge-icon">🔗</div>
+        <div>
+          <div class="judge-title">A2A Composability</div>
+          <div class="judge-desc">Number, diversity, and depth of A2A relationships. CROO supplies aggregated CAP order data to judges.</div>
+        </div>
+        <div class="judge-pct">25%</div>
+      </div>
+      <div class="judge-row">
+        <div class="judge-icon">💡</div>
+        <div>
+          <div class="judge-title">Innovation</div>
+          <div class="judge-desc">Hard-to-replicate use case. Would this be impossible (or much worse) on a normal API marketplace?</div>
+        </div>
+        <div class="judge-pct">20%</div>
+      </div>
+      <div class="judge-row">
+        <div class="judge-icon">👥</div>
+        <div>
+          <div class="judge-title">Usability & Real Adoption</div>
+          <div class="judge-desc">Path to real users, early organic interactions, retention potential.</div>
+        </div>
+        <div class="judge-pct">15%</div>
+      </div>
+      <div class="judge-row">
+        <div class="judge-icon">🎬</div>
+        <div>
+          <div class="judge-title">Presentation</div>
+          <div class="judge-desc">Demo clarity, README reproducibility, value-prop crispness. Scored at Demo Day.</div>
+        </div>
+        <div class="judge-pct">10%</div>
+      </div>
+    </div>
+
+    <div style="height:64px;"></div>
+
+    <!-- REQUIREMENTS & RULES -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+
+      <div>
+        <div class="sec-label">Requirements</div>
+        <h2 class="sec-title">Every BUIDL Must Have</h2>
+        <ul class="req-list">
+          <li class="req-item">
+            <div class="req-icon">🏪</div>
+            <div>
+              <div class="req-title">Listed on CROO Agent Store</div>
+              <div class="req-desc">Discoverable by humans and other agents on Base mainnet.</div>
+            </div>
+          </li>
+          <li class="req-item">
+            <div class="req-icon">🔗</div>
+            <div>
+              <div class="req-title">Integrated with CAP</div>
+              <div class="req-desc">Agent is callable and settles on-chain in USDC.</div>
+            </div>
+          </li>
+          <li class="req-item">
+            <div class="req-icon">📂</div>
+            <div>
+              <div class="req-title">Open Source</div>
+              <div class="req-desc">Public GitHub repo with MIT / Apache 2.0 / similar permissive license.</div>
+            </div>
+          </li>
+          <li class="req-item">
+            <div class="req-icon">🎬</div>
+            <div>
+              <div class="req-title">Demo + README</div>
+              <div class="req-desc">Max 5-min demo video, setup instructions, SDK methods used, integration notes.</div>
+            </div>
+          </li>
+          <li class="req-item">
+            <div class="req-icon">📝</div>
+            <div>
+              <div class="req-title">BUIDL Filed on DoraHacks</div>
+              <div class="req-desc">All required fields completed before the submission deadline.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sec-label">Fair Play</div>
+        <h2 class="sec-title">Anti-Sybil & Disqualification</h2>
+
+        <div class="rules-card">
+          <div class="rules-title">⚠️ Anti-Sybil & Disqualification</div>
+          <div class="sub-h">Hard disqualification</div>
+          <ul>
+            <li>Private repo or unverifiable code</li>
+            <li>Copy-paste fork without meaningful modification</li>
+            <li>Fake demo, broken CAP integration, or failed human spot-check</li>
+          </ul>
+          <div class="sub-h">Reward-eligibility flags <span style="opacity:.7;font-weight:500;text-transform:none;letter-spacing:0;">(not auto-DQ; reviewed)</span></div>
+          <ul>
+            <li>&lt; 3 unique counterparty agents</li>
+            <li>&lt; 5 unique buyer wallets</li>
+            <li>Highly concentrated self-trade pattern</li>
+            <li>Random 10% human audit failure</li>
+          </ul>
+          <p>Appeals: 48-hour window after notification, reviewed by an uninvolved CROO Core member.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="ft-logo"><a href="https://croo.network/" target="_blank"><img src="logo-croo.png" alt="CROO" /></a></div>
+  <ul class="ft-links">
+    <li><a href="https://croo.network/" target="_blank">Website</a></li>
+    <li><a href="https://cap.croo.network/" target="_blank">Docs</a></li>
+    <li><a href="https://discord.gg/HR6YKqUNGd" target="_blank">Discord</a></li>
+  </ul>
+  <p class="ft-copy">© 2026 CROO Network. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
