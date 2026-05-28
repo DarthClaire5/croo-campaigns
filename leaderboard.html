@@ -195,6 +195,32 @@
     .star-pending-title { font-size:1.1rem; font-weight:800; margin-bottom:10px; }
     .star-pending-desc  { font-size:.92rem; color:var(--m); line-height:1.68; max-width:520px; margin:0 auto; }
 
+    /* PAYOUT SECTION */
+    .payout-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    @media(max-width:860px) { .payout-grid { grid-template-columns:1fr; } }
+    .payout-card {
+      background:var(--card); border:1px solid var(--bdr);
+      border-radius:16px; padding:24px 26px; transition:border-color .2s;
+    }
+    .payout-card:hover { border-color:var(--gbdr); }
+    .payout-card .pc-icon  { font-size:24px; margin-bottom:12px; }
+    .payout-card .pc-title { font-size:.95rem; font-weight:800; margin-bottom:6px; letter-spacing:-.01em; }
+    .payout-card .pc-tag   { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+                             color:var(--green); background:var(--gdim); border:1px solid var(--gbdr);
+                             border-radius:100px; padding:3px 10px; margin-bottom:14px; }
+    .payout-card .pc-row   { display:flex; gap:10px; font-size:.85rem; color:var(--m); line-height:1.5; margin-bottom:8px; }
+    .payout-card .pc-row:last-child { margin-bottom:0; }
+    .payout-card .pc-row strong { color:var(--w); font-weight:700; min-width:80px; flex-shrink:0; }
+    .payout-card .pc-row span { flex:1; }
+    .schedule-row {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 0; border-bottom:1px dashed var(--bdr);
+      font-size:.85rem;
+    }
+    .schedule-row:last-child { border-bottom:none; }
+    .schedule-row .sr-week { color:var(--m); }
+    .schedule-row .sr-date { color:var(--w); font-weight:700; font-variant-numeric:tabular-nums; }
+
     /* INTEGRITY SECTION */
     .integrity-card {
       background:rgba(245,200,66,.04); border:1px solid rgba(245,200,66,.2);
@@ -376,8 +402,62 @@
   </div>
 </section>
 
-<!-- INTEGRITY & FAIR PLAY -->
+<!-- PAYOUTS & SNAPSHOTS -->
 <section class="section">
+  <div class="container">
+    <div class="sec-label">Payouts</div>
+    <h2 class="sec-title" style="margin-bottom:8px;">Snapshots & Distribution</h2>
+    <p class="sec-sub">Live rankings refresh daily at 00:00 UTC. Prize payouts are based on the snapshot at the end of each scoring period — not the live ranking.</p>
+
+    <div class="payout-grid">
+
+      <div class="payout-card">
+        <div class="pc-icon">💧</div>
+        <div class="pc-tag">TVL Weekly · 4 payouts</div>
+        <div class="pc-title">Weekly Snapshot</div>
+        <div class="pc-row"><strong>Snapshot</strong><span>Every 7 days from Jun 9 at <strong style="min-width:auto;">23:59 UTC</strong></span></div>
+        <div class="pc-row"><strong>Dates</strong><span>Jun 15 · Jun 22 · Jun 29 · Jul 7</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> of each snapshot</span></div>
+        <div class="pc-row"><strong>Per week</strong><span>$840 USDC · Top 5</span></div>
+      </div>
+
+      <div class="payout-card">
+        <div class="pc-icon">📊</div>
+        <div class="pc-tag">Orders Weekly · 4 payouts</div>
+        <div class="pc-title">Weekly Snapshot</div>
+        <div class="pc-row"><strong>Snapshot</strong><span>Every 7 days from Jun 9 at <strong style="min-width:auto;">23:59 UTC</strong></span></div>
+        <div class="pc-row"><strong>Dates</strong><span>Jun 15 · Jun 22 · Jun 29 · Jul 7</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> of each snapshot</span></div>
+        <div class="pc-row"><strong>Per week</strong><span>$840 USDC · Top 5</span></div>
+      </div>
+
+      <div class="payout-card">
+        <div class="pc-icon">🏔️</div>
+        <div class="pc-tag">TVL Monthly · 1 payout</div>
+        <div class="pc-title">Season Final Snapshot</div>
+        <div class="pc-row"><strong>Snapshot</strong><span>Season end on <strong style="min-width:auto;">Jul 7, 23:59 UTC</strong></span></div>
+        <div class="pc-row"><strong>Window</strong><span>Cumulative Jun 9 → Jul 7</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> after season ends</span></div>
+        <div class="pc-row"><strong>Pool</strong><span>$4,500 USDC · Top 5</span></div>
+      </div>
+
+    </div>
+
+    <div class="payout-card" style="margin-top:14px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div class="pc-icon" style="margin-bottom:0;">⭐</div>
+        <div>
+          <div class="pc-title">Rising Star — Hand-picked Weekly</div>
+          <div class="pc-row" style="margin-top:8px;"><span>CROO team selects 1–2 standout agents each week. Winners are announced on Discord and X every Monday following the snapshot. Prize amount disclosed at announcement; payout follows the same 5-business-day rule.</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INTEGRITY & FAIR PLAY -->
+<section class="section" style="padding-top:0;">
   <div class="container">
     <div class="integrity-card">
       <div class="integrity-header">
