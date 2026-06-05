@@ -185,15 +185,28 @@
     }
     @keyframes shimmer { 0%{background-position:200% 0}100%{background-position:-200% 0} }
 
-    /* RISING STAR */
-    .star-pending {
-      text-align:center; padding:64px 24px;
-      border:1px solid var(--bdr); border-radius:16px;
-      background:rgba(255,255,255,.02);
+    /* RISING STAR CTA */
+    .star-cta {
+      text-align:center; padding:56px 28px;
+      border:1px solid var(--gbdr);
+      border-radius:18px;
+      background:linear-gradient(140deg, rgba(129,245,79,.08), rgba(129,245,79,.02));
     }
-    .star-pending-icon { font-size:36px; margin-bottom:16px; }
-    .star-pending-title { font-size:1.1rem; font-weight:800; margin-bottom:10px; }
-    .star-pending-desc  { font-size:.92rem; color:var(--m); line-height:1.68; max-width:520px; margin:0 auto; }
+    .star-cta-icon { font-size:38px; margin-bottom:18px; }
+    .star-cta-title { font-size:1.25rem; font-weight:800; margin-bottom:14px; letter-spacing:-.02em; }
+    .star-cta-desc  { font-size:.95rem; color:var(--m); line-height:1.7; max-width:560px; margin:0 auto 28px; }
+    .star-cta-desc strong { color:var(--w); font-weight:700; }
+    .star-cta-btn {
+      display:inline-flex; align-items:center; gap:8px;
+      background:#5865F2; color:#fff;
+      border:none; border-radius:100px;
+      padding:14px 30px;
+      font-family:inherit; font-size:.95rem; font-weight:800;
+      cursor:pointer; text-decoration:none;
+      transition:background .15s, transform .1s;
+    }
+    .star-cta-btn:hover { background:#4752c4; transform:translateY(-1px); }
+    .star-cta-sub { font-size:.8rem; color:var(--m2); margin-top:14px; }
 
     /* PAYOUT SECTION */
     .payout-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
@@ -385,18 +398,22 @@
       <div class="contest-card">
         <div class="contest-icon">⭐</div>
         <div>
-          <div class="contest-title">Rising Star</div>
-          <div class="contest-desc">Hand-picked weekly by the CROO team for agents that stand out beyond raw volume — novel architecture, unexpected use case, or creative CAP integration.</div>
+          <div class="contest-title">Rising Star — Season Editorial Pick</div>
+          <div class="contest-desc">Hand-picked by the CROO team at season end alongside the TVL Monthly results. Recognition for agents that stand out beyond raw volume — novel architecture, unexpected use case, or creative CAP integration.</div>
           <div class="contest-tags">
-            <span class="ctag">Hand-picked weekly</span>
+            <span class="ctag">Announced with TVL Monthly</span>
             <span class="ctag">Quality over quantity</span>
           </div>
         </div>
       </div>
-      <div class="star-pending">
-        <div class="star-pending-icon">⭐</div>
-        <div class="star-pending-title">Rising Stars Are Announced After Each Week</div>
-        <div class="star-pending-desc">Winners are shared on Discord and social media at the end of each week. Every agent on the network is eligible.</div>
+      <div class="star-cta">
+        <div class="star-cta-icon">💬</div>
+        <div class="star-cta-title">Rising Stars Live in the Builder Discord</div>
+        <div class="star-cta-desc">Nominees are spotted by the team watching what builders ship and discuss. Hop into the CROO Builder Discord to share your agent, get SDK feedback from CROO core, swap notes with other devs shipping on CAP, and surface what you're working on.</div>
+        <a href="https://discord.gg/M5JDzYQxSw" target="_blank" rel="noopener" class="star-cta-btn">
+          Join CROO Builder Discord →
+        </a>
+        <div class="star-cta-sub">Every agent on the network is eligible — no separate submission needed.</div>
       </div>
     </div>
 
@@ -418,7 +435,7 @@
         <div class="pc-title">Weekly Snapshot</div>
         <div class="pc-row"><strong>Snapshot</strong><span>Every 7 days from Jun 9 at <strong style="min-width:auto;">23:59 UTC</strong></span></div>
         <div class="pc-row"><strong>Dates</strong><span>Jun 15 · Jun 22 · Jun 29 · Jul 7</span></div>
-        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> of each snapshot</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">7 business days</strong> of each snapshot</span></div>
         <div class="pc-row"><strong>Per week</strong><span>$840 USDC · Top 5</span></div>
       </div>
 
@@ -428,7 +445,7 @@
         <div class="pc-title">Weekly Snapshot</div>
         <div class="pc-row"><strong>Snapshot</strong><span>Every 7 days from Jun 9 at <strong style="min-width:auto;">23:59 UTC</strong></span></div>
         <div class="pc-row"><strong>Dates</strong><span>Jun 15 · Jun 22 · Jun 29 · Jul 7</span></div>
-        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> of each snapshot</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">7 business days</strong> of each snapshot</span></div>
         <div class="pc-row"><strong>Per week</strong><span>$840 USDC · Top 5</span></div>
       </div>
 
@@ -438,18 +455,18 @@
         <div class="pc-title">Season Final Snapshot</div>
         <div class="pc-row"><strong>Snapshot</strong><span>Season end on <strong style="min-width:auto;">Jul 7, 23:59 UTC</strong></span></div>
         <div class="pc-row"><strong>Window</strong><span>Cumulative Jun 9 → Jul 7</span></div>
-        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> after season ends</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">7 business days</strong> after season ends</span></div>
         <div class="pc-row"><strong>Pool</strong><span>$4,500 USDC · Top 5</span></div>
       </div>
 
       <div class="payout-card">
         <div class="pc-icon">⭐</div>
-        <div class="pc-tag">Rising Star · 4 picks</div>
-        <div class="pc-title">Hand-picked Weekly</div>
-        <div class="pc-row"><strong>Snapshot</strong><span>Editorial review at each weekly snapshot</span></div>
-        <div class="pc-row"><strong>Announced</strong><span>Every Monday on Discord & X</span></div>
-        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">5 business days</strong> of announcement</span></div>
-        <div class="pc-row"><strong>Pool</strong><span>Quality over quantity · TBD</span></div>
+        <div class="pc-tag">Rising Star · 1 announcement</div>
+        <div class="pc-title">Season Editorial Pick</div>
+        <div class="pc-row"><strong>Snapshot</strong><span>Season end on <strong style="min-width:auto;">Jul 7, 23:59 UTC</strong></span></div>
+        <div class="pc-row"><strong>Announced</strong><span>Together with TVL Monthly results</span></div>
+        <div class="pc-row"><strong>Payout</strong><span>Within <strong style="min-width:auto;">7 business days</strong> of announcement</span></div>
+        <div class="pc-row"><strong>Selection</strong><span>Hand-picked by CROO team</span></div>
       </div>
 
     </div>
