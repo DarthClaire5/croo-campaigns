@@ -2,7 +2,7 @@
 window.T_PAGE = {
   en: {
     page_title: "CROO Campaigns",
-    hero_h1: "CROO <em>Builder Rewards</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Three programs to reward builders during the Agent Store launch window. Pick the one that fits — or do all three.",
     sec_active: "Active Campaigns",
     card_lb_dates: "Jun 9 – Jul 7",
@@ -24,7 +24,7 @@ window.T_PAGE = {
   },
   zh: {
     page_title: "CROO 活动中心",
-    hero_h1: "CROO <em>构建者奖励</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Agent Store 上线期间为构建者准备的三档奖励计划。挑一个适合你的,或者三个一起做。",
     sec_active: "进行中的活动",
     card_lb_dates: "6 月 9 日 – 7 月 7 日",
@@ -46,7 +46,7 @@ window.T_PAGE = {
   },
   ja: {
     page_title: "CROO Campaigns",
-    hero_h1: "CROO <em>ビルダーリワード</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Agent Storeローンチ期間中、ビルダーに報酬を還元する3つのプログラム。自分に合うものを選ぶも、全部に参加するも自由です。",
     sec_active: "開催中のキャンペーン",
     card_lb_dates: "6月9日 – 7月7日",
@@ -68,7 +68,7 @@ window.T_PAGE = {
   },
   ko: {
     page_title: "CROO 캠페인",
-    hero_h1: "CROO <em>빌더 리워드</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Agent Store 런칭 기간 동안 빌더에게 보상을 제공하는 세 가지 프로그램입니다. 본인에게 맞는 것을 선택하거나 세 가지 모두에 참여하세요.",
     sec_active: "진행 중인 캠페인",
     card_lb_dates: "6월 9일 – 7월 7일",
@@ -90,7 +90,7 @@ window.T_PAGE = {
   },
   es: {
     page_title: "CROO Campaigns",
-    hero_h1: "CROO <em>Recompensas para Builders</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Tres programas para premiar a los builders durante la ventana de lanzamiento del Agent Store. Elige el que te quede mejor — o participa en los tres.",
     sec_active: "Campañas activas",
     card_lb_dates: "9 jun – 7 jul",
@@ -112,7 +112,7 @@ window.T_PAGE = {
   },
   pt: {
     page_title: "CROO Campaigns",
-    hero_h1: "CROO <em>Recompensas para Builders</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Três programas para recompensar builders durante a janela de lançamento da Agent Store. Escolha o que se encaixa — ou participe dos três.",
     sec_active: "Campanhas Ativas",
     card_lb_dates: "9 de Jun – 7 de Jul",
@@ -134,7 +134,7 @@ window.T_PAGE = {
   },
   fr: {
     page_title: "CROO Campaigns",
-    hero_h1: "CROO <em>Récompenses Builders</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Trois programmes pour récompenser les builders pendant la fenêtre de lancement de l'Agent Store. Choisissez celui qui vous correspond — ou faites les trois.",
     sec_active: "Campagnes actives",
     card_lb_dates: "9 juin – 7 juil.",
@@ -156,7 +156,7 @@ window.T_PAGE = {
   },
   de: {
     page_title: "CROO Campaigns",
-    hero_h1: "CROO <em>Builder Rewards</em>",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Drei Programme, um Builder während des Agent Store Launch-Fensters zu belohnen. Wähle das passende – oder mach alle drei.",
     sec_active: "Aktive Campaigns",
     card_lb_dates: "9. Juni – 7. Juli",
@@ -178,7 +178,7 @@ window.T_PAGE = {
   },
   id: {
     page_title: "CROO Campaigns",
-    hero_h1: "<em>Hadiah Builder</em> CROO",
+    hero_h1: "CROO Campaigns <em>Nest</em>",
     hero_sub: "Tiga program untuk memberi reward para builder selama periode peluncuran Agent Store. Pilih yang paling cocok — atau ikuti ketiganya sekaligus.",
     sec_active: "Campaign Aktif",
     card_lb_dates: "9 Jun – 7 Jul",
