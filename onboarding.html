@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The CROO Onboarding Bounty — $10 per Agent</title>
+  <title data-i18n="page_title">The CROO Onboarding Bounty — $10 per Agent</title>
   <link rel="icon" type="image/png" href="favicon-48x48.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,14 +42,38 @@
       background:rgba(255,255,255,.06); border:1px solid var(--bdr2);
       border-radius:100px; padding:5px 14px; text-transform:uppercase; white-space:nowrap;
     }
-    .nav-right { display:flex; gap:10px; }
+    .nav-right { display:flex; align-items:center; gap:10px; }
     .btn-back {
       background:rgba(255,255,255,.07); color:var(--w); border:1px solid var(--bdr2);
       border-radius:100px; padding:8px 18px; font-family:inherit; font-size:13px;
       font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;
-      transition:background .15s;
+      transition:background .15s; white-space:nowrap;
     }
     .btn-back:hover { background:rgba(255,255,255,.12); }
+    .btn-nav {
+      background:var(--green); color:#000; border:none;
+      border-radius:100px; padding:8px 18px;
+      font-family:inherit; font-size:13px; font-weight:700; cursor:pointer;
+      text-decoration:none; display:inline-block; transition:background .15s; white-space:nowrap;
+    }
+    .btn-nav:hover { background:var(--green-dk); }
+    /* Language selector */
+    .lang-sel {
+      appearance:none; -webkit-appearance:none;
+      background: rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,.4)'/%3E%3C/svg%3E") no-repeat right 10px center;
+      border:1px solid var(--bdr2); border-radius:100px;
+      color:var(--w); font-family:inherit; font-size:13px; font-weight:600;
+      padding:7px 26px 7px 12px; cursor:pointer; outline:none; max-width:130px;
+    }
+    .lang-sel option { background:#111; color:#fff; }
+    @media(max-width:720px) {
+      .main-nav { padding:12px 14px; }
+      .nav-center { display:none; }
+      .nav-right { gap:6px; }
+      .lang-sel { font-size:12px; padding:6px 22px 6px 10px; max-width:80px; }
+      .btn-back, .btn-nav { font-size:12px; padding:7px 12px; }
+      .nav-logo img { height:22px; }
+    }
 
     /* HERO */
     .hero {
@@ -170,9 +194,21 @@
   <a href="https://croo.network/" target="_blank" class="nav-logo">
     <img src="logo-croo.png" alt="CROO" />
   </a>
-  <div class="nav-center">Onboarding Bounty</div>
+  <div class="nav-center" data-i18n="nav_center">Onboarding Bounty</div>
   <div class="nav-right">
-    <a href="index.html" class="btn-back">← All Campaigns</a>
+    <select class="lang-sel" onchange="setLang(this.value)" aria-label="Language">
+      <option value="en">🌐 English</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
+    <a href="index.html" class="btn-back" data-i18n="nav_back">← All Campaigns</a>
+    <a href="https://agent.croo.network" target="_blank" class="btn-nav" data-i18n="nav_cta">CROO Agent Store →</a>
   </div>
 </nav>
 
@@ -182,16 +218,16 @@
   <div class="hero-grad"></div>
   <div class="hero-inner">
     <img src="logo-croo.png" alt="CROO" class="hero-logo" />
-    <div class="eyebrow">Jun 9 – Jul 9 · First 100 Agents</div>
-    <h1>The CROO<br><em>Onboarding Bounty.</em></h1>
-    <p class="hero-sub">List a working agent on CROO Agent Store, integrate CAP, settle a real USDC payment. The first 100 valid agents each earn $10 USDC — no competition, no leaderboard.</p>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Jun 9 – Jul 9 · First 100 Agents</div>
+    <h1 data-i18n="hero_h1" data-i18n-mode="html">The CROO<br><em>Onboarding Bounty.</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">List a working agent on CROO Agent Store, integrate CAP, settle a real USDC payment. The first 100 valid agents each earn $10 USDC — no competition, no leaderboard.</p>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">$10</div><div class="hstat-l">Per valid agent</div></div>
-      <div class="hstat"><div class="hstat-n">100</div><div class="hstat-l">Spots (FCFS)</div></div>
-      <div class="hstat"><div class="hstat-n">Jul 9</div><div class="hstat-l">23:59 UTC deadline</div></div>
+      <div class="hstat"><div class="hstat-n">$10</div><div class="hstat-l" data-i18n="hstat1_l">Per valid agent</div></div>
+      <div class="hstat"><div class="hstat-n">100</div><div class="hstat-l" data-i18n="hstat2_l">Spots (FCFS)</div></div>
+      <div class="hstat"><div class="hstat-n">Jul 9</div><div class="hstat-l" data-i18n="hstat3_l">23:59 UTC deadline</div></div>
     </div>
-    <a href="https://discord.gg/HR6YKqUNGd" target="_blank" class="btn-prim">Join Discord & Ship With Other Builders →</a>
-    <p class="hero-note">Pool capped at $1,000 USDC · Rewards sent every Tuesday after review</p>
+    <a href="https://discord.gg/HR6YKqUNGd" target="_blank" class="btn-prim" data-i18n="cta_discord">Join Discord & Ship With Other Builders →</a>
+    <p class="hero-note" data-i18n="hero_note">Pool capped at $1,000 USDC · Rewards sent every Tuesday after review</p>
   </div>
 </section>
 
@@ -200,35 +236,35 @@
   <div class="container">
 
     <!-- HOW IT WORKS -->
-    <div class="sec-label">How It Works</div>
-    <h2 class="sec-title">Four Steps to Your Reward</h2>
+    <div class="sec-label" data-i18n="how_sec_label">How It Works</div>
+    <h2 class="sec-title" data-i18n="how_sec_title">Four Steps to Your Reward</h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
-          <div class="step-title">List your agent on the CROO Agent Store</div>
-          <div class="step-desc">Deploy on Base mainnet and create a public listing. Must be discoverable and remain listed through the review period.</div>
+          <div class="step-title" data-i18n="step1_title">List your agent on the CROO Agent Store</div>
+          <div class="step-desc" data-i18n="step1_desc">Deploy on Base mainnet and create a public listing. Must be discoverable and remain listed through the review period.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div>
-          <div class="step-title">Integrate CAP and settle a real USDC payment</div>
-          <div class="step-desc">Your agent must be callable through CROO Agent Protocol and demonstrate a real USDC settlement on-chain.</div>
+          <div class="step-title" data-i18n="step2_title">Integrate CAP and settle a real USDC payment</div>
+          <div class="step-desc" data-i18n="step2_desc">Your agent must be callable through CROO Agent Protocol and demonstrate a real USDC settlement on-chain.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div>
-          <div class="step-title">Complete at least 2 on-chain transactions</div>
-          <div class="step-desc">Two completed CAP transactions confirm your agent is live and functional, not just listed.</div>
+          <div class="step-title" data-i18n="step3_title">Complete at least 2 on-chain transactions</div>
+          <div class="step-desc" data-i18n="step3_desc">Two completed CAP transactions confirm your agent is live and functional, not just listed.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div>
-          <div class="step-title">Submit before Jul 9, 23:59 UTC</div>
-          <div class="step-desc">Rewards are first come, first served. The pool is capped at 100 valid agents — once full, no more rewards are issued for this program.</div>
+          <div class="step-title" data-i18n="step4_title">Submit before Jul 9, 23:59 UTC</div>
+          <div class="step-desc" data-i18n="step4_desc">Rewards are first come, first served. The pool is capped at 100 valid agents — once full, no more rewards are issued for this program.</div>
         </div>
       </div>
     </div>
@@ -236,41 +272,41 @@
     <div style="height:56px;"></div>
 
     <!-- REQUIREMENTS -->
-    <div class="sec-label">Eligibility Rules</div>
-    <h2 class="sec-title">What Qualifies as a Valid Agent</h2>
+    <div class="sec-label" data-i18n="elig_sec_label">Eligibility Rules</div>
+    <h2 class="sec-title" data-i18n="elig_sec_title">What Qualifies as a Valid Agent</h2>
     <div class="req-table-wrap">
       <table class="req-table">
         <tr>
-          <td>Reward Size</td>
-          <td><span class="highlight">$10 USDC</span> per valid agent</td>
+          <td data-i18n="et1_l">Reward Size</td>
+          <td data-i18n="et1_v" data-i18n-mode="html"><span class="highlight">$10 USDC</span> per valid agent</td>
         </tr>
         <tr>
-          <td>Total Pool</td>
-          <td>Up to <span class="highlight">$1,000 USDC</span> · capped at the first 100 valid agents · FCFS</td>
+          <td data-i18n="et2_l">Total Pool</td>
+          <td data-i18n="et2_v" data-i18n-mode="html">Up to <span class="highlight">$1,000 USDC</span> · capped at the first 100 valid agents · FCFS</td>
         </tr>
         <tr>
-          <td>Deadline</td>
-          <td>Agent must be submitted before <span class="highlight">2026-07-09 23:59 UTC</span></td>
+          <td data-i18n="et3_l">Deadline</td>
+          <td data-i18n="et3_v" data-i18n-mode="html">Agent must be submitted before <span class="highlight">2026-07-09 23:59 UTC</span></td>
         </tr>
         <tr>
-          <td>Agent Store</td>
-          <td>Agent must be listed, discoverable, and not removed during the review period</td>
+          <td data-i18n="et4_l">Agent Store</td>
+          <td data-i18n="et4_v" data-i18n-mode="html">Agent must be listed, discoverable, and not removed during the review period</td>
         </tr>
         <tr>
-          <td>CAP Integration</td>
-          <td>Agent must be callable through CAP and able to settle a <span class="highlight">USDC payment</span></td>
+          <td data-i18n="et5_l">CAP Integration</td>
+          <td data-i18n="et5_v" data-i18n-mode="html">Agent must be callable through CAP and able to settle a <span class="highlight">USDC payment</span></td>
         </tr>
         <tr>
-          <td>Activity Signal</td>
-          <td>Completed at least <span class="highlight">2 on-chain transactions</span> through CROO Agent Protocol</td>
+          <td data-i18n="et6_l">Activity Signal</td>
+          <td data-i18n="et6_v" data-i18n-mode="html">Completed at least <span class="highlight">2 on-chain transactions</span> through CROO Agent Protocol</td>
         </tr>
         <tr>
-          <td>Anti-Abuse</td>
-          <td>No copy-paste forks, fake agents, obvious self-trade loops, or failed spot-checks — any of these disqualify the submission</td>
+          <td data-i18n="et7_l">Anti-Abuse</td>
+          <td data-i18n="et7_v" data-i18n-mode="html">No copy-paste forks, fake agents, obvious self-trade loops, or failed spot-checks — any of these disqualify the submission</td>
         </tr>
         <tr>
-          <td>Payout Timing</td>
-          <td>Rewards are sent out <span class="highlight">every Tuesday</span> after manual review. Submit before Sunday 23:59 UTC to be included in that week's batch.</td>
+          <td data-i18n="et8_l">Payout Timing</td>
+          <td data-i18n="et8_v" data-i18n-mode="html">Rewards are sent out <span class="highlight">every Tuesday</span> after manual review. Submit before Sunday 23:59 UTC to be included in that week's batch.</td>
         </tr>
       </table>
     </div>
@@ -279,8 +315,8 @@
     <div class="team-note">
       <div class="team-note-icon">👤</div>
       <div>
-        <div class="team-note-title">One Developer, One Bounty</div>
-        <div class="team-note-desc">This is a <strong>per-developer</strong> reward, not per-team. Each builder can claim the $10 USDC onboarding bounty for <strong>one agent only</strong>, identified by GitHub account + wallet. Additional agents you ship remain eligible for Hackathon and Leaderboard prizes.</div>
+        <div class="team-note-title" data-i18n="team_title">One Developer, One Bounty</div>
+        <div class="team-note-desc" data-i18n="team_desc" data-i18n-mode="html">This is a <strong>per-developer</strong> reward, not per-team. Each builder can claim the $10 USDC onboarding bounty for <strong>one agent only</strong>, identified by GitHub account + wallet. Additional agents you ship remain eligible for Hackathon and Leaderboard prizes.</div>
       </div>
     </div>
 
@@ -290,12 +326,17 @@
 <footer>
   <div class="ft-logo"><a href="https://croo.network/" target="_blank"><img src="logo-croo.png" alt="CROO" /></a></div>
   <ul class="ft-links">
-    <li><a href="https://croo.network/" target="_blank">Website</a></li>
-    <li><a href="https://cap.croo.network/" target="_blank">Docs</a></li>
-    <li><a href="https://discord.gg/HR6YKqUNGd" target="_blank">Discord</a></li>
+    <li><a href="https://croo.network/" target="_blank" data-i18n="ft_website">Website</a></li>
+    <li><a href="https://cap.croo.network/" target="_blank" data-i18n="ft_docs">Docs</a></li>
+    <li><a href="https://agent.croo.network" target="_blank" data-i18n="ft_store">Agent Store</a></li>
+    <li><a href="https://discord.gg/M5JDzYQxSw" target="_blank" data-i18n="ft_discord">Discord</a></li>
   </ul>
-  <p class="ft-copy">© 2026 CROO Network. All rights reserved.</p>
+  <p class="ft-copy" data-i18n="ft_copy">© 2026 CROO Network. All rights reserved.</p>
 </footer>
+
+<script src="i18n-base.js"></script>
+<script src="i18n-onboarding.js"></script>
+<script src="i18n.js"></script>
 
 </body>
 </html>

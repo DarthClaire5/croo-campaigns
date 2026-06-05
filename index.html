@@ -42,9 +42,25 @@
       background:var(--green); color:#000; border:none;
       border-radius:100px; padding:8px 18px;
       font-family:inherit; font-size:13px; font-weight:700; cursor:pointer;
-      text-decoration:none; display:inline-block; transition:background .15s;
+      text-decoration:none; display:inline-block; transition:background .15s; white-space:nowrap;
     }
     .btn-nav:hover { background:var(--green-dk); }
+    /* Language selector */
+    .lang-sel {
+      appearance:none; -webkit-appearance:none;
+      background: rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,.4)'/%3E%3C/svg%3E") no-repeat right 10px center;
+      border:1px solid var(--bdr2); border-radius:100px;
+      color:var(--w); font-family:inherit; font-size:13px; font-weight:600;
+      padding:7px 26px 7px 12px; cursor:pointer; outline:none; max-width:140px;
+    }
+    .lang-sel option { background:#111; color:#fff; }
+    @media(max-width:560px) {
+      .main-nav { padding:12px 16px; }
+      .nav-right { gap:6px; }
+      .lang-sel { font-size:12px; padding:6px 22px 6px 10px; max-width:90px; }
+      .btn-nav { font-size:12px; padding:7px 14px; }
+      .nav-logo img { height:22px; }
+    }
 
     /* HERO — compact so cards are visible */
     .hero {
@@ -152,7 +168,18 @@
     <img src="logo-croo.png" alt="CROO" />
   </a>
   <div class="nav-right">
-    <a href="https://croo.network/" target="_blank" class="btn-nav">croo.network →</a>
+    <select class="lang-sel" onchange="setLang(this.value)" aria-label="Language">
+      <option value="en">🌐 English</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
+    <a href="https://agent.croo.network" target="_blank" class="btn-nav" data-i18n="nav_cta">CROO Agent Store →</a>
   </div>
 </nav>
 
@@ -161,60 +188,60 @@
   <div class="hero-grad"></div>
   <div class="hero-inner">
     <img src="logo-croo.png" alt="CROO" class="hero-logo" />
-    <h1>CROO <em>Campaigns</em></h1>
-    <p class="hero-sub">Three programs to reward builders during the Agent Store launch window. Pick the one that fits — or do all three.</p>
+    <h1 data-i18n="hero_h1" data-i18n-mode="html">CROO <em>Campaigns</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Three programs to reward builders during the Agent Store launch window. Pick the one that fits — or do all three.</p>
   </div>
 </section>
 
 <section class="campaigns">
   <div class="container">
-    <h2 class="sec-title">Active Campaigns</h2>
+    <h2 class="sec-title" data-i18n="sec_active">Active Campaigns</h2>
 
     <div class="camp-grid">
 
       <!-- Leaderboard -->
       <a href="leaderboard.html" class="camp-card">
-        <div class="camp-status s-soon"><span class="camp-dot pulse"></span>Jun 9 – Jul 7</div>
+        <div class="camp-status s-soon"><span class="camp-dot pulse"></span><span data-i18n="card_lb_dates">Jun 9 – Jul 7</span></div>
         <div class="camp-icon">📊</div>
-        <div class="camp-title">Season 1 Leaderboard</div>
-        <p class="camp-desc">Four live boards. TVL Monthly, TVL Weekly, Order Number Weekly, and Rising Star. Rankings update daily from on-chain data.</p>
+        <div class="camp-title" data-i18n="card_lb_title">Season 1 Leaderboard</div>
+        <p class="camp-desc" data-i18n="card_lb_desc">Four live boards. TVL Monthly, TVL Weekly, Order Number Weekly, and Rising Star. Rankings update daily from on-chain data.</p>
         <div class="camp-prize">
           <span class="camp-prize-n">$11,220</span>
-          <span class="camp-prize-l">USDC total pool</span>
+          <span class="camp-prize-l" data-i18n="card_lb_prizel">USDC total pool</span>
         </div>
-        <span class="camp-cta">View Leaderboard <span class="camp-cta-arrow">→</span></span>
+        <span class="camp-cta" data-i18n="card_lb_cta" data-i18n-mode="html">View Leaderboard <span class="camp-cta-arrow">→</span></span>
       </a>
 
       <!-- Hackathon -->
       <a href="hackathon.html" class="camp-card">
-        <div class="camp-status s-soon"><span class="camp-dot pulse"></span>Jun 9 – Jul 24</div>
+        <div class="camp-status s-soon"><span class="camp-dot pulse"></span><span data-i18n="card_hk_dates">Jun 9 – Jul 24</span></div>
         <div class="camp-icon">⚡</div>
-        <div class="camp-title">CROO Agent Hackathon</div>
-        <p class="camp-desc">Ship a paid, callable agent on CROO Agent Protocol. Six tracks, 30-day build sprint. Hosted on DoraHacks. Submissions close Jul 9.</p>
+        <div class="camp-title" data-i18n="card_hk_title">CROO Agent Hackathon</div>
+        <p class="camp-desc" data-i18n="card_hk_desc">Ship a paid, callable agent on CROO Agent Protocol. Six tracks, 30-day build sprint. Hosted on DoraHacks. Submissions close Jul 9.</p>
         <div class="camp-prize">
           <span class="camp-prize-n">$10,200</span>
-          <span class="camp-prize-l">USDC cash pool</span>
+          <span class="camp-prize-l" data-i18n="card_hk_prizel">USDC cash pool</span>
         </div>
-        <span class="camp-cta">View Hackathon <span class="camp-cta-arrow">→</span></span>
+        <span class="camp-cta" data-i18n="card_hk_cta" data-i18n-mode="html">View Hackathon <span class="camp-cta-arrow">→</span></span>
       </a>
 
       <!-- Onboarding Rewards -->
       <a href="onboarding.html" class="camp-card">
-        <div class="camp-status s-soon"><span class="camp-dot pulse"></span>Jun 9 – Jul 9</div>
+        <div class="camp-status s-soon"><span class="camp-dot pulse"></span><span data-i18n="card_ob_dates">Jun 9 – Jul 9</span></div>
         <div class="camp-icon">🎁</div>
-        <div class="camp-title">The CROO Onboarding Bounty</div>
-        <p class="camp-desc">List a working agent on CROO Agent Store, integrate CAP, settle a real USDC payment. First 100 valid agents get paid.</p>
+        <div class="camp-title" data-i18n="card_ob_title">The CROO Onboarding Bounty</div>
+        <p class="camp-desc" data-i18n="card_ob_desc">List a working agent on CROO Agent Store, integrate CAP, settle a real USDC payment. First 100 valid agents get paid.</p>
         <div class="camp-prize">
           <span class="camp-prize-n">$1K</span>
-          <span class="camp-prize-l">USDC pool · <span style="opacity:.65">$10 per agent</span></span>
+          <span class="camp-prize-l" data-i18n="card_ob_prizel" data-i18n-mode="html">USDC pool · <span style="opacity:.65">$10 per agent</span></span>
         </div>
-        <span class="camp-cta">View Details <span class="camp-cta-arrow">→</span></span>
+        <span class="camp-cta" data-i18n="card_ob_cta" data-i18n-mode="html">View Details <span class="camp-cta-arrow">→</span></span>
       </a>
 
     </div>
 
     <div class="archive-note">
-      <a href="https://pioneer.croo.network/" target="_blank">📜 V1 Pioneers Program — Archived →</a>
+      <a href="https://pioneer.croo.network/" target="_blank" data-i18n="archive_link">📜 V1 Pioneers Program — Archived →</a>
     </div>
   </div>
 </section>
@@ -222,12 +249,17 @@
 <footer>
   <div class="ft-logo"><a href="https://croo.network/" target="_blank"><img src="logo-croo.png" alt="CROO" /></a></div>
   <ul class="ft-links">
-    <li><a href="https://croo.network/" target="_blank">Website</a></li>
-    <li><a href="https://cap.croo.network/" target="_blank">Docs</a></li>
-    <li><a href="https://discord.gg/HR6YKqUNGd" target="_blank">Discord</a></li>
+    <li><a href="https://croo.network/" target="_blank" data-i18n="ft_website">Website</a></li>
+    <li><a href="https://cap.croo.network/" target="_blank" data-i18n="ft_docs">Docs</a></li>
+    <li><a href="https://agent.croo.network" target="_blank" data-i18n="ft_store">Agent Store</a></li>
+    <li><a href="https://discord.gg/M5JDzYQxSw" target="_blank" data-i18n="ft_discord">Discord</a></li>
   </ul>
-  <p class="ft-copy">© 2026 CROO Network. All rights reserved.</p>
+  <p class="ft-copy" data-i18n="ft_copy">© 2026 CROO Network. All rights reserved.</p>
 </footer>
+
+<script src="i18n-base.js"></script>
+<script src="i18n-index.js"></script>
+<script src="i18n.js"></script>
 
 </body>
 </html>

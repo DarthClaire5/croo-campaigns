@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CROO Agent Hackathon — $10,200 USDC</title>
+  <title data-i18n="page_title">CROO Agent Hackathon — $10,200 USDC</title>
   <link rel="icon" type="image/png" href="favicon-48x48.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,14 +43,38 @@
       background:rgba(255,255,255,.06); border:1px solid var(--bdr2);
       border-radius:100px; padding:5px 14px; text-transform:uppercase; white-space:nowrap;
     }
-    .nav-right { display:flex; gap:10px; }
+    .nav-right { display:flex; align-items:center; gap:10px; }
     .btn-back {
       background:rgba(255,255,255,.07); color:var(--w); border:1px solid var(--bdr2);
       border-radius:100px; padding:8px 18px; font-family:inherit; font-size:13px;
       font-weight:600; cursor:pointer; text-decoration:none; display:inline-block;
-      transition:background .15s;
+      transition:background .15s; white-space:nowrap;
     }
     .btn-back:hover { background:rgba(255,255,255,.12); }
+    .btn-nav {
+      background:var(--green); color:#000; border:none;
+      border-radius:100px; padding:8px 18px;
+      font-family:inherit; font-size:13px; font-weight:700; cursor:pointer;
+      text-decoration:none; display:inline-block; transition:background .15s; white-space:nowrap;
+    }
+    .btn-nav:hover { background:var(--green-dk); }
+    /* Language selector */
+    .lang-sel {
+      appearance:none; -webkit-appearance:none;
+      background: rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,.4)'/%3E%3C/svg%3E") no-repeat right 10px center;
+      border:1px solid var(--bdr2); border-radius:100px;
+      color:var(--w); font-family:inherit; font-size:13px; font-weight:600;
+      padding:7px 26px 7px 12px; cursor:pointer; outline:none; max-width:130px;
+    }
+    .lang-sel option { background:#111; color:#fff; }
+    @media(max-width:720px) {
+      .main-nav { padding:12px 14px; }
+      .nav-center { display:none; }
+      .nav-right { gap:6px; }
+      .lang-sel { font-size:12px; padding:6px 22px 6px 10px; max-width:80px; }
+      .btn-back, .btn-nav { font-size:12px; padding:7px 12px; }
+      .nav-logo img { height:22px; }
+    }
 
     /* HERO */
     .hero {
@@ -259,9 +283,21 @@
   <a href="https://croo.network/" target="_blank" class="nav-logo">
     <img src="logo-croo.png" alt="CROO" />
   </a>
-  <div class="nav-center">CROO Agent Hackathon</div>
+  <div class="nav-center" data-i18n="nav_center">CROO Agent Hackathon</div>
   <div class="nav-right">
-    <a href="index.html" class="btn-back">← All Campaigns</a>
+    <select class="lang-sel" onchange="setLang(this.value)" aria-label="Language">
+      <option value="en">🌐 English</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
+    <a href="index.html" class="btn-back" data-i18n="nav_back">← All Campaigns</a>
+    <a href="https://agent.croo.network" target="_blank" class="btn-nav" data-i18n="nav_cta">CROO Agent Store →</a>
   </div>
 </nav>
 
@@ -271,13 +307,13 @@
   <div class="hero-grad"></div>
   <div class="hero-inner">
     <img src="logo-croo.png" alt="CROO" class="hero-logo" />
-    <div class="eyebrow">Hosted on DoraHacks · Jun 9 – Jul 24</div>
-    <h1>CROO Agent<em>Hackathon.</em></h1>
-    <p class="hero-sub">Build a paid, callable AI agent on the CROO Agent Protocol. Six tracks, 30-day build sprint, real prizes.</p>
-    <div class="prize-pill">🏆 <strong>$10,200</strong> USDC Prize Pool</div>
+    <div class="eyebrow" data-i18n="hero_eyebrow">Hosted on DoraHacks · Jun 9 – Jul 24</div>
+    <h1 data-i18n="hero_h1" data-i18n-mode="html">CROO Agent<em>Hackathon.</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Build a paid, callable AI agent on the CROO Agent Protocol. Six tracks, 30-day build sprint, real prizes.</p>
+    <div class="prize-pill" data-i18n="prize_pill" data-i18n-mode="html">🏆 <strong>$10,200</strong> USDC Prize Pool</div>
     <div class="hero-ctas">
-      <a href="https://dorahacks.io/hackathon/croo-hackathon/detail" target="_blank" class="btn-prim">Register on DoraHacks →</a>
-      <a href="https://cap.croo.network/" target="_blank" class="btn-ghost">Read Docs & List Your Agent</a>
+      <a href="https://dorahacks.io/hackathon/croo-hackathon/detail" target="_blank" class="btn-prim" data-i18n="cta_register">Register on DoraHacks →</a>
+      <a href="https://cap.croo.network/" target="_blank" class="btn-ghost" data-i18n="cta_docs">Read Docs & List Your Agent</a>
     </div>
   </div>
 </section>
@@ -287,51 +323,51 @@
   <div class="container">
 
     <!-- TIMELINE -->
-    <div class="sec-label">Timeline</div>
-    <h2 class="sec-title">Key Dates</h2>
+    <div class="sec-label" data-i18n="tl_sec_label">Timeline</div>
+    <h2 class="sec-title" data-i18n="tl_sec_title">Key Dates</h2>
     <div class="timeline-wrap">
       <div class="timeline">
         <div class="tl-step">
           <div class="tl-dot">🚀</div>
           <div class="tl-date">Jun 9</div>
-          <div class="tl-label">Kickoff</div>
-          <div class="tl-desc">Registration opens</div>
+          <div class="tl-label" data-i18n="tl1_label">Kickoff</div>
+          <div class="tl-desc" data-i18n="tl1_desc">Registration opens</div>
         </div>
         <div class="tl-step">
           <div class="tl-dot">⚒️</div>
-          <div class="tl-date">Jun 9 – Jul 9</div>
-          <div class="tl-label">Build Sprint</div>
-          <div class="tl-desc">30 days</div>
+          <div class="tl-date" data-i18n="tl2_date">Jun 9 – Jul 9</div>
+          <div class="tl-label" data-i18n="tl2_label">Build Sprint</div>
+          <div class="tl-desc" data-i18n="tl2_desc">30 days</div>
         </div>
         <div class="tl-step">
           <div class="tl-dot">📦</div>
-          <div class="tl-date">Jul 9 · 23:59 UTC+8</div>
-          <div class="tl-label">Submission Deadline</div>
-          <div class="tl-desc">All BUIDLs must be filed</div>
+          <div class="tl-date" data-i18n="tl3_date">Jul 9 · 23:59 UTC+8</div>
+          <div class="tl-label" data-i18n="tl3_label">Submission Deadline</div>
+          <div class="tl-desc" data-i18n="tl3_desc">All BUIDLs must be filed</div>
         </div>
         <div class="tl-step">
           <div class="tl-dot">🔍</div>
-          <div class="tl-date">Jul 10 – 15</div>
-          <div class="tl-label">Internal Review</div>
-          <div class="tl-desc">Shortlisting</div>
+          <div class="tl-date" data-i18n="tl4_date">Jul 10 – 15</div>
+          <div class="tl-label" data-i18n="tl4_label">Internal Review</div>
+          <div class="tl-desc" data-i18n="tl4_desc">Shortlisting</div>
         </div>
         <div class="tl-step">
           <div class="tl-dot">🎬</div>
           <div class="tl-date">Jul 16</div>
-          <div class="tl-label">Demo Day</div>
-          <div class="tl-desc">Live presentations</div>
+          <div class="tl-label" data-i18n="tl5_label">Demo Day</div>
+          <div class="tl-desc" data-i18n="tl5_desc">Live presentations</div>
         </div>
         <div class="tl-step">
           <div class="tl-dot">⚖️</div>
-          <div class="tl-date">Jul 17 – 23</div>
-          <div class="tl-label">Final Judging</div>
-          <div class="tl-desc">Judges score</div>
+          <div class="tl-date" data-i18n="tl6_date">Jul 17 – 23</div>
+          <div class="tl-label" data-i18n="tl6_label">Final Judging</div>
+          <div class="tl-desc" data-i18n="tl6_desc">Judges score</div>
         </div>
         <div class="tl-step">
           <div class="tl-dot">🏆</div>
           <div class="tl-date">Jul 24</div>
-          <div class="tl-label">Winners Announced</div>
-          <div class="tl-desc">Results published</div>
+          <div class="tl-label" data-i18n="tl7_label">Winners Announced</div>
+          <div class="tl-desc" data-i18n="tl7_desc">Results published</div>
         </div>
       </div>
     </div>
@@ -339,14 +375,14 @@
     <div style="height:64px;"></div>
 
     <!-- PRIZES -->
-    <div class="sec-label">Prizes</div>
-    <h2 class="sec-title">$10,200 USDC Cash Pool</h2>
+    <div class="sec-label" data-i18n="prize_sec_label">Prizes</div>
+    <h2 class="sec-title" data-i18n="prize_sec_title">$10,200 USDC Cash Pool</h2>
     <div class="prize-list">
       <div class="prize-list-item prize-top">
         <div class="prize-list-left">
           <div class="prize-list-medal">🥇</div>
           <div>
-            <div class="prize-list-rank">1st — Grand Champion</div>
+            <div class="prize-list-rank" data-i18n="prize1_rank">1st — Grand Champion</div>
           </div>
         </div>
         <div class="prize-list-amount">$3,500 USDC</div>
@@ -354,14 +390,14 @@
       <div class="prize-list-item prize-top">
         <div class="prize-list-left">
           <div class="prize-list-medal">🥈</div>
-          <div><div class="prize-list-rank">2nd Place</div></div>
+          <div><div class="prize-list-rank" data-i18n="prize2_rank">2nd Place</div></div>
         </div>
         <div class="prize-list-amount">$2,500 USDC</div>
       </div>
       <div class="prize-list-item prize-top">
         <div class="prize-list-left">
           <div class="prize-list-medal">🥉</div>
-          <div><div class="prize-list-rank">3rd Place</div></div>
+          <div><div class="prize-list-rank" data-i18n="prize3_rank">3rd Place</div></div>
         </div>
         <div class="prize-list-amount">$1,500 USDC</div>
       </div>
@@ -369,18 +405,18 @@
         <div class="prize-list-left">
           <div class="prize-list-medal">🏅</div>
           <div>
-            <div class="prize-list-rank">4th – 10th — Honorable</div>
-            <div class="prize-list-sub">7 winners · $300 × 7 = $2,100</div>
+            <div class="prize-list-rank" data-i18n="prize4_rank">4th – 10th — Honorable</div>
+            <div class="prize-list-sub" data-i18n="prize4_sub">7 winners · $300 × 7 = $2,100</div>
           </div>
         </div>
-        <div class="prize-list-amount" style="font-size:1rem;">$300 USDC each</div>
+        <div class="prize-list-amount" style="font-size:1rem;" data-i18n="prize4_amount">$300 USDC each</div>
       </div>
       <div class="prize-list-item">
         <div class="prize-list-left">
           <div class="prize-list-medal">❤️</div>
           <div>
-            <div class="prize-list-rank">Most Popular Agent</div>
-            <div class="prize-list-sub">Data-driven · anti-sybil reviewed</div>
+            <div class="prize-list-rank" data-i18n="prize5_rank">Most Popular Agent</div>
+            <div class="prize-list-sub" data-i18n="prize5_sub">Data-driven · anti-sybil reviewed</div>
           </div>
         </div>
         <div class="prize-list-amount" style="font-size:1rem;">$300 USDC</div>
@@ -389,8 +425,8 @@
         <div class="prize-list-left">
           <div class="prize-list-medal">💡</div>
           <div>
-            <div class="prize-list-rank">Most Innovative Agent</div>
-            <div class="prize-list-sub">Judges' pick</div>
+            <div class="prize-list-rank" data-i18n="prize6_rank">Most Innovative Agent</div>
+            <div class="prize-list-sub" data-i18n="prize6_sub">Judges' pick</div>
           </div>
         </div>
         <div class="prize-list-amount" style="font-size:1rem;">$300 USDC</div>
@@ -401,103 +437,103 @@
     <div class="perks-grid">
       <div class="perk-card">
         <div class="perk-icon">🏪</div>
-        <div class="perk-title">Agent Store Featured Listing</div>
-        <div class="perk-desc">Top finishers get featured placement on CROO Agent Store.</div>
+        <div class="perk-title" data-i18n="perk1_title">Agent Store Featured Listing</div>
+        <div class="perk-desc" data-i18n="perk1_desc">Top finishers get featured placement on CROO Agent Store.</div>
       </div>
       <div class="perk-card">
         <div class="perk-icon">🎟️</div>
-        <div class="perk-title">$CROO Airdrop Whitelist</div>
-        <div class="perk-desc">Top 10 teams added to the $CROO airdrop whitelist.</div>
+        <div class="perk-title" data-i18n="perk2_title">$CROO Airdrop Whitelist</div>
+        <div class="perk-desc" data-i18n="perk2_desc">Top 10 teams added to the $CROO airdrop whitelist.</div>
       </div>
       <div class="perk-card">
         <div class="perk-icon">📌</div>
-        <div class="perk-title">Permanent Listing</div>
-        <div class="perk-desc">Every valid submission keeps a permanent listing on CROO Agent Store.</div>
+        <div class="perk-title" data-i18n="perk3_title">Permanent Listing</div>
+        <div class="perk-desc" data-i18n="perk3_desc">Every valid submission keeps a permanent listing on CROO Agent Store.</div>
       </div>
     </div>
 
     <div style="height:64px;"></div>
 
     <!-- TRACKS -->
-    <div class="sec-label">Tracks</div>
-    <h2 class="sec-title">Six Categories</h2>
+    <div class="sec-label" data-i18n="tracks_sec_label">Tracks</div>
+    <h2 class="sec-title" data-i18n="tracks_sec_title">Six Categories</h2>
     <div class="tracks-grid">
       <div class="track-card">
         <div class="track-icon">🔬</div>
-        <div class="track-title">Research & Intelligence Agents</div>
-        <div class="track-desc">Paid research with verifiable sources.</div>
+        <div class="track-title" data-i18n="track1_title">Research & Intelligence Agents</div>
+        <div class="track-desc" data-i18n="track1_desc">Paid research with verifiable sources.</div>
       </div>
       <div class="track-card">
         <div class="track-icon">✅</div>
-        <div class="track-title">Data & Verification Agents</div>
-        <div class="track-desc">Provenance, credentials, output checks.</div>
+        <div class="track-title" data-i18n="track2_title">Data & Verification Agents</div>
+        <div class="track-desc" data-i18n="track2_desc">Provenance, credentials, output checks.</div>
       </div>
       <div class="track-card">
         <div class="track-icon">🎨</div>
-        <div class="track-title">Creator & Content Ops Agents</div>
-        <div class="track-desc">Priced, composable creator services.</div>
+        <div class="track-title" data-i18n="track3_title">Creator & Content Ops Agents</div>
+        <div class="track-desc" data-i18n="track3_desc">Priced, composable creator services.</div>
       </div>
       <div class="track-card">
         <div class="track-icon">⛓️</div>
-        <div class="track-title">DeFi / On-chain Ops Agents</div>
-        <div class="track-desc">Monitoring, alerts, execution.</div>
+        <div class="track-title" data-i18n="track4_title">DeFi / On-chain Ops Agents</div>
+        <div class="track-desc" data-i18n="track4_desc">Monitoring, alerts, execution.</div>
       </div>
       <div class="track-card">
         <div class="track-icon">🛠️</div>
-        <div class="track-title">Developer Tooling Agents</div>
-        <div class="track-desc">Tools for other CAP builders.</div>
+        <div class="track-title" data-i18n="track5_title">Developer Tooling Agents</div>
+        <div class="track-desc" data-i18n="track5_desc">Tools for other CAP builders.</div>
       </div>
       <div class="track-card">
         <div class="track-icon">∞</div>
-        <div class="track-title">Open — Any A2A Agents</div>
-        <div class="track-desc">Anything proving A2A composability.</div>
+        <div class="track-title" data-i18n="track6_title">Open — Any A2A Agents</div>
+        <div class="track-desc" data-i18n="track6_desc">Anything proving A2A composability.</div>
       </div>
     </div>
-    <p class="track-note">Multiple-track submissions allowed (max 2 per BUIDL).</p>
+    <p class="track-note" data-i18n="tracks_note">Multiple-track submissions allowed (max 2 per BUIDL).</p>
 
     <div style="height:64px;"></div>
 
     <!-- JUDGING CRITERIA -->
-    <div class="sec-label">Judging</div>
-    <h2 class="sec-title">Criteria & Weighting</h2>
+    <div class="sec-label" data-i18n="judge_sec_label">Judging</div>
+    <h2 class="sec-title" data-i18n="judge_sec_title">Criteria & Weighting</h2>
     <div class="judge-list">
       <div class="judge-row">
         <div class="judge-icon">⚙️</div>
         <div>
-          <div class="judge-title">Technical Execution</div>
-          <div class="judge-desc">Robust CAP integration, reliable A2A interactions, proper payment state handling. Bonus: 10+ real CAP orders during the hackathon.</div>
+          <div class="judge-title" data-i18n="judge1_title">Technical Execution</div>
+          <div class="judge-desc" data-i18n="judge1_desc">Robust CAP integration, reliable A2A interactions, proper payment state handling. Bonus: 10+ real CAP orders during the hackathon.</div>
         </div>
         <div class="judge-pct">30%</div>
       </div>
       <div class="judge-row">
         <div class="judge-icon">🔗</div>
         <div>
-          <div class="judge-title">A2A Composability</div>
-          <div class="judge-desc">Number, diversity, and depth of A2A relationships. CROO supplies aggregated CAP order data to judges.</div>
+          <div class="judge-title" data-i18n="judge2_title">A2A Composability</div>
+          <div class="judge-desc" data-i18n="judge2_desc">Number, diversity, and depth of A2A relationships. CROO supplies aggregated CAP order data to judges.</div>
         </div>
         <div class="judge-pct">25%</div>
       </div>
       <div class="judge-row">
         <div class="judge-icon">💡</div>
         <div>
-          <div class="judge-title">Innovation</div>
-          <div class="judge-desc">Hard-to-replicate use case. Would this be impossible (or much worse) on a normal API marketplace?</div>
+          <div class="judge-title" data-i18n="judge3_title">Innovation</div>
+          <div class="judge-desc" data-i18n="judge3_desc">Hard-to-replicate use case. Would this be impossible (or much worse) on a normal API marketplace?</div>
         </div>
         <div class="judge-pct">20%</div>
       </div>
       <div class="judge-row">
         <div class="judge-icon">👥</div>
         <div>
-          <div class="judge-title">Usability & Real Adoption</div>
-          <div class="judge-desc">Path to real users, early organic interactions, retention potential.</div>
+          <div class="judge-title" data-i18n="judge4_title">Usability & Real Adoption</div>
+          <div class="judge-desc" data-i18n="judge4_desc">Path to real users, early organic interactions, retention potential.</div>
         </div>
         <div class="judge-pct">15%</div>
       </div>
       <div class="judge-row">
         <div class="judge-icon">🎬</div>
         <div>
-          <div class="judge-title">Presentation</div>
-          <div class="judge-desc">Demo clarity, README reproducibility, value-prop crispness. Scored at Demo Day.</div>
+          <div class="judge-title" data-i18n="judge5_title">Presentation</div>
+          <div class="judge-desc" data-i18n="judge5_desc">Demo clarity, README reproducibility, value-prop crispness. Scored at Demo Day.</div>
         </div>
         <div class="judge-pct">10%</div>
       </div>
@@ -509,67 +545,67 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
 
       <div>
-        <div class="sec-label">Requirements</div>
-        <h2 class="sec-title">Every BUIDL Must Have</h2>
+        <div class="sec-label" data-i18n="req_sec_label">Requirements</div>
+        <h2 class="sec-title" data-i18n="req_sec_title">Every BUIDL Must Have</h2>
         <ul class="req-list">
           <li class="req-item">
             <div class="req-icon">🏪</div>
             <div>
-              <div class="req-title">Listed on CROO Agent Store</div>
-              <div class="req-desc">Discoverable by humans and other agents on Base mainnet.</div>
+              <div class="req-title" data-i18n="req1_title">Listed on CROO Agent Store</div>
+              <div class="req-desc" data-i18n="req1_desc">Discoverable by humans and other agents on Base mainnet.</div>
             </div>
           </li>
           <li class="req-item">
             <div class="req-icon">🔗</div>
             <div>
-              <div class="req-title">Integrated with CAP</div>
-              <div class="req-desc">Agent is callable and settles on-chain in USDC.</div>
+              <div class="req-title" data-i18n="req2_title">Integrated with CAP</div>
+              <div class="req-desc" data-i18n="req2_desc">Agent is callable and settles on-chain in USDC.</div>
             </div>
           </li>
           <li class="req-item">
             <div class="req-icon">📂</div>
             <div>
-              <div class="req-title">Open Source</div>
-              <div class="req-desc">Public GitHub repo with MIT / Apache 2.0 / similar permissive license.</div>
+              <div class="req-title" data-i18n="req3_title">Open Source</div>
+              <div class="req-desc" data-i18n="req3_desc">Public GitHub repo with MIT / Apache 2.0 / similar permissive license.</div>
             </div>
           </li>
           <li class="req-item">
             <div class="req-icon">🎬</div>
             <div>
-              <div class="req-title">Demo + README</div>
-              <div class="req-desc">Max 5-min demo video, setup instructions, SDK methods used, integration notes.</div>
+              <div class="req-title" data-i18n="req4_title">Demo + README</div>
+              <div class="req-desc" data-i18n="req4_desc">Max 5-min demo video, setup instructions, SDK methods used, integration notes.</div>
             </div>
           </li>
           <li class="req-item">
             <div class="req-icon">📝</div>
             <div>
-              <div class="req-title">BUIDL Filed on DoraHacks</div>
-              <div class="req-desc">All required fields completed before the submission deadline.</div>
+              <div class="req-title" data-i18n="req5_title">BUIDL Filed on DoraHacks</div>
+              <div class="req-desc" data-i18n="req5_desc">All required fields completed before the submission deadline.</div>
             </div>
           </li>
         </ul>
       </div>
 
       <div>
-        <div class="sec-label">Fair Play</div>
-        <h2 class="sec-title">Anti-Sybil & Disqualification</h2>
+        <div class="sec-label" data-i18n="fair_sec_label">Fair Play</div>
+        <h2 class="sec-title" data-i18n="fair_sec_title">Anti-Sybil & Disqualification</h2>
 
         <div class="rules-card">
-          <div class="rules-title">⚠️ Anti-Sybil & Disqualification</div>
-          <div class="sub-h">Hard disqualification</div>
+          <div class="rules-title" data-i18n="rules_title">⚠️ Anti-Sybil & Disqualification</div>
+          <div class="sub-h" data-i18n="rules_subh1">Hard disqualification</div>
           <ul>
-            <li>Private repo or unverifiable code</li>
-            <li>Copy-paste fork without meaningful modification</li>
-            <li>Fake demo, broken CAP integration, or failed human spot-check</li>
+            <li data-i18n="rules_p1">Private repo or unverifiable code</li>
+            <li data-i18n="rules_p2">Copy-paste fork without meaningful modification</li>
+            <li data-i18n="rules_p3">Fake demo, broken CAP integration, or failed human spot-check</li>
           </ul>
-          <div class="sub-h">Reward-eligibility flags <span style="opacity:.7;font-weight:500;text-transform:none;letter-spacing:0;">(not auto-DQ; reviewed)</span></div>
+          <div class="sub-h" data-i18n="rules_subh2" data-i18n-mode="html">Reward-eligibility flags <span style="opacity:.7;font-weight:500;text-transform:none;letter-spacing:0;">(not auto-DQ; reviewed)</span></div>
           <ul>
-            <li>&lt; 3 unique counterparty agents</li>
-            <li>&lt; 5 unique buyer wallets</li>
-            <li>Highly concentrated self-trade pattern</li>
-            <li>Random 10% human audit failure</li>
+            <li data-i18n="rules_p4" data-i18n-mode="html">&lt; 3 unique counterparty agents</li>
+            <li data-i18n="rules_p5" data-i18n-mode="html">&lt; 5 unique buyer wallets</li>
+            <li data-i18n="rules_p6">Highly concentrated self-trade pattern</li>
+            <li data-i18n="rules_p7">Random 10% human audit failure</li>
           </ul>
-          <p>Appeals: 48-hour window after notification, reviewed by an uninvolved CROO Core member.</p>
+          <p data-i18n="rules_appeal">Appeals: 48-hour window after notification, reviewed by an uninvolved CROO Core member.</p>
         </div>
       </div>
 
@@ -581,12 +617,17 @@
 <footer>
   <div class="ft-logo"><a href="https://croo.network/" target="_blank"><img src="logo-croo.png" alt="CROO" /></a></div>
   <ul class="ft-links">
-    <li><a href="https://croo.network/" target="_blank">Website</a></li>
-    <li><a href="https://cap.croo.network/" target="_blank">Docs</a></li>
-    <li><a href="https://discord.gg/HR6YKqUNGd" target="_blank">Discord</a></li>
+    <li><a href="https://croo.network/" target="_blank" data-i18n="ft_website">Website</a></li>
+    <li><a href="https://cap.croo.network/" target="_blank" data-i18n="ft_docs">Docs</a></li>
+    <li><a href="https://agent.croo.network" target="_blank" data-i18n="ft_store">Agent Store</a></li>
+    <li><a href="https://discord.gg/M5JDzYQxSw" target="_blank" data-i18n="ft_discord">Discord</a></li>
   </ul>
-  <p class="ft-copy">© 2026 CROO Network. All rights reserved.</p>
+  <p class="ft-copy" data-i18n="ft_copy">© 2026 CROO Network. All rights reserved.</p>
 </footer>
+
+<script src="i18n-base.js"></script>
+<script src="i18n-hackathon.js"></script>
+<script src="i18n.js"></script>
 
 </body>
 </html>
