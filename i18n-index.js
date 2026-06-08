@@ -20,7 +20,9 @@ window.T_PAGE = {
     card_ob_desc: "List a working agent on CROO Agent Store, integrate CAP, settle a real USDC payment. First 100 valid agents get paid.",
     card_ob_prizel: "USDC pool · <span style=\"opacity:.65\">$10 per agent</span>",
     card_ob_cta: "View Details <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — Archived →"
+    archive_link: "📜 V1 Pioneers Program — Archived →",
+    hero_cta_hackathon: "⚡ Join the Hackathon →",
+    hero_cta_discord: "💬 Join Discord with Fellow Devs →"
   },
   zh: {
     page_title: "CROO 活动中心",
@@ -42,7 +44,9 @@ window.T_PAGE = {
     card_ob_desc: "在 CROO Agent Store 上架一个能跑的 agent,接入 CAP,完成一笔真实 USDC 结算。前 100 个有效 agent 都有赏金。",
     card_ob_prizel: "USDC 奖池 · <span style=\"opacity:.65\">每个 agent $10</span>",
     card_ob_cta: "查看详情 <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — 已归档 →"
+    archive_link: "📜 V1 Pioneers Program — 已归档 →",
+    hero_cta_hackathon: "⚡ 参加 Hackathon →",
+    hero_cta_discord: "💬 加入 Discord, 与开发者社区为伍 →"
   },
   ja: {
     page_title: "CROO Campaigns",
@@ -64,7 +68,9 @@ window.T_PAGE = {
     card_ob_desc: "CROO Agent Storeで稼働中のエージェントを公開し、CAPを統合、実際のUSDC決済を実行。最初の100エージェントに報酬を支払います。",
     card_ob_prizel: "USDCプール · <span style=\"opacity:.65\">エージェント1体あたり$10</span>",
     card_ob_cta: "詳細を見る <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — アーカイブ →"
+    archive_link: "📜 V1 Pioneers Program — アーカイブ →",
+    hero_cta_hackathon: "⚡ Hackathon に参加 →",
+    hero_cta_discord: "💬 Discord で開発者と繋がる →"
   },
   ko: {
     page_title: "CROO 캠페인",
@@ -86,7 +92,9 @@ window.T_PAGE = {
     card_ob_desc: "CROO Agent Store에 작동하는 에이전트를 등록하고, CAP를 연동하여, 실제 USDC 결제를 정산하세요. 유효한 첫 100개의 에이전트가 보상을 받습니다.",
     card_ob_prizel: "USDC 풀 · <span style=\"opacity:.65\">에이전트당 $10</span>",
     card_ob_cta: "자세히 보기 <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — 아카이브 →"
+    archive_link: "📜 V1 Pioneers Program — 아카이브 →",
+    hero_cta_hackathon: "⚡ Hackathon 참여하기 →",
+    hero_cta_discord: "💬 Discord에서 동료 개발자와 함께 →"
   },
   es: {
     page_title: "CROO Campaigns",
@@ -108,7 +116,9 @@ window.T_PAGE = {
     card_ob_desc: "Lista un agente funcional en CROO Agent Store, integra CAP y liquida un pago real en USDC. Los primeros 100 agentes válidos reciben recompensa.",
     card_ob_prizel: "Pool en USDC · <span style=\"opacity:.65\">$10 por agente</span>",
     card_ob_cta: "Ver detalles <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 Programa V1 Pioneers — Archivado →"
+    archive_link: "📜 Programa V1 Pioneers — Archivado →",
+    hero_cta_hackathon: "⚡ Únete al Hackathon →",
+    hero_cta_discord: "💬 Únete al Discord con otros Builders →"
   },
   pt: {
     page_title: "CROO Campaigns",
@@ -130,7 +140,9 @@ window.T_PAGE = {
     card_ob_desc: "Liste um agente funcional na CROO Agent Store, integre o CAP e processe um pagamento real em USDC. Os primeiros 100 agentes válidos recebem.",
     card_ob_prizel: "Pool em USDC · <span style=\"opacity:.65\">$10 por agente</span>",
     card_ob_cta: "Ver Detalhes <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — Arquivado →"
+    archive_link: "📜 V1 Pioneers Program — Arquivado →",
+    hero_cta_hackathon: "⚡ Participe do Hackathon →",
+    hero_cta_discord: "💬 Junte-se ao Discord com outros Builders →"
   },
   fr: {
     page_title: "CROO Campaigns",
@@ -152,7 +164,9 @@ window.T_PAGE = {
     card_ob_desc: "Listez un agent fonctionnel sur le CROO Agent Store, intégrez CAP, réglez un véritable paiement en USDC. Les 100 premiers agents valides sont payés.",
     card_ob_prizel: "Cagnotte en USDC · <span style=\"opacity:.65\">$10 par agent</span>",
     card_ob_cta: "Voir les détails <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — Archivé →"
+    archive_link: "📜 V1 Pioneers Program — Archivé →",
+    hero_cta_hackathon: "⚡ Rejoindre le Hackathon →",
+    hero_cta_discord: "💬 Rejoindre le Discord avec d'autres Builders →"
   },
   de: {
     page_title: "CROO Campaigns",
@@ -174,7 +188,9 @@ window.T_PAGE = {
     card_ob_desc: "Liste einen funktionierenden Agent im CROO Agent Store, integriere CAP, settle eine echte USDC-Zahlung. Die ersten 100 gültigen Agents werden bezahlt.",
     card_ob_prizel: "USDC Pool · <span style=\"opacity:.65\">$10 pro Agent</span>",
     card_ob_cta: "Details ansehen <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — Archiviert →"
+    archive_link: "📜 V1 Pioneers Program — Archiviert →",
+    hero_cta_hackathon: "⚡ Am Hackathon teilnehmen →",
+    hero_cta_discord: "💬 Builder Discord beitreten →"
   },
   id: {
     page_title: "CROO Campaigns",
@@ -196,6 +212,8 @@ window.T_PAGE = {
     card_ob_desc: "List agent yang berfungsi di CROO Agent Store, integrasikan CAP, selesaikan pembayaran USDC nyata. 100 agent valid pertama dapat reward.",
     card_ob_prizel: "Pool USDC · <span style=\"opacity:.65\">$10 per agent</span>",
     card_ob_cta: "Lihat Detail <span class=\"camp-cta-arrow\">→</span>",
-    archive_link: "📜 V1 Pioneers Program — Diarsipkan →"
+    archive_link: "📜 V1 Pioneers Program — Diarsipkan →",
+    hero_cta_hackathon: "⚡ Ikuti Hackathon →",
+    hero_cta_discord: "💬 Gabung Discord bareng Builder lain →"
   }
 };

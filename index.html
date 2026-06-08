@@ -90,6 +90,29 @@
       font-size:clamp(.95rem,1.8vw,1.08rem); color:var(--m);
       max-width:560px; margin:0 auto; line-height:1.72;
     }
+    .hero-ctas {
+      display:flex; align-items:center; justify-content:center;
+      gap:12px; flex-wrap:wrap; margin-top:32px;
+    }
+    .hero-cta-prim, .hero-cta-discord {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:13px 28px; border-radius:100px;
+      font-family:inherit; font-size:.95rem; font-weight:800;
+      text-decoration:none; transition:background .15s, transform .1s;
+      white-space:nowrap; border:none; cursor:pointer;
+    }
+    .hero-cta-prim {
+      background:var(--green); color:#000;
+    }
+    .hero-cta-prim:hover { background:var(--green-dk); transform:translateY(-1px); }
+    .hero-cta-discord {
+      background:#5865F2; color:#fff;
+    }
+    .hero-cta-discord:hover { background:#4752c4; transform:translateY(-1px); }
+    @media(max-width:560px) {
+      .hero-ctas { gap:10px; flex-direction:column; width:100%; max-width:320px; margin:24px auto 0; }
+      .hero-cta-prim, .hero-cta-discord { width:100%; padding:12px 22px; font-size:.9rem; }
+    }
 
     /* CAMPAIGNS */
     .campaigns { padding:40px 24px 16px; }
@@ -190,6 +213,10 @@
     <img src="logo-croo.png" alt="CROO" class="hero-logo" />
     <h1 data-i18n="hero_h1" data-i18n-mode="html">CROO Campaigns <em>Nest</em></h1>
     <p class="hero-sub" data-i18n="hero_sub">Three programs to reward builders during the Agent Store launch window. Pick the one that fits — or do all three.</p>
+    <div class="hero-ctas">
+      <a href="https://dorahacks.io/hackathon/croo-hackathon/detail" target="_blank" rel="noopener" class="hero-cta-prim" data-i18n="hero_cta_hackathon">⚡ Join the Hackathon →</a>
+      <a href="https://discord.gg/M5JDzYQxSw" target="_blank" rel="noopener" class="hero-cta-discord" data-i18n="hero_cta_discord">💬 Join Discord with Fellow Devs →</a>
+    </div>
   </div>
 </section>
 
